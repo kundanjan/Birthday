@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birthday Card</title>
+    <!-- Google Font-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="ballon">
+        <img src="./images/ballons2.png" alt="" width="500px">
+    </div>
+    <div class="topH">
+        <h1 id="text"></h1>
+    </div>
+    <div class="card">
+    
+      <div class="outside">
+        <div class="front">
+          <p>Happy Birthday</p>
+          <div class="cake">
+            <div class="top-layer"></div>
+            <div class="middle-layer"></div>
+            <div class="bottom-layer"></div>
+            <div class="candle"></div>
+          </div>
+        </div>
+        <div class="back"></div>
+      </div>
+      <div class="inside">
+        <p> वाढदिवसाच्या खूप खूप शुभेच्छा, ताई! तुझं आयुष्य आनंदाने, प्रेमाने आणि यशाने भरलेलं असू दे. तुला सगळं काही मनासारखं मिळो. तुझ्या सर्व स्वप्नांची पूर्तता होवो. हा दिवस तुझ्यासाठी खास असावा आणि आगामी वर्ष तुझ्यासाठी भरभराटीचं आणि आनंदाचं जावो हीच देवाकडे प्रार्थना.
+        </p>
+        <h1>&#127873;</h1>
+      </div>
+    </div>
+    <audio id="bgAudio"  autoplay loop>
+        <source src="audio/hbd.mp3" type="audio/mpeg">
+      </audio>
+    <input type="button" value="play" id="btn" style="display: none;" >
+      <a href="cut.html">
+          <button type="button" class="button">Cut the Cake</button>
+      </a>
+
+    <script>
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            const textElement = document.getElementById("text");
+        
+            const text = "Happiest Birthday to My sweet Sister";
+            let index = 0;
+
+            btn = document.getElementById("btn");
+            btn.addEventListener("click",function(){
+                var audio = document.getElementById("bgAudio");
+                audio.play();
+            });
+            btn.click();
+
+            function type() {
+                if (index < text.length) {
+                    textElement.innerHTML += text.charAt(index);
+                    index++;
+                    setTimeout(type, 100); // Adjust the delay to control typing speed
+                }
+                if (index == text.length){
+                    index=0;
+                    textElement.innerHTML = ""
+                    // type();
+                }
+            }
+
+            type();
+        });
+    </script>
+  </body>
+</html>
